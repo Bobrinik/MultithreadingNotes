@@ -2,7 +2,7 @@
 
     * UMA,NUMA, SMP, CMP, CMT, FMT, SMT architecture
 
-    * Amdahal's Law 1/ \[ \(1 - p\) + p/n \]
+    * Amdahal's Law 1/ [ (1 - p) + p/n ]
 
      Independent threads = threads whose write sets are disjoint and write sets don't overla with read set of another
 
@@ -36,15 +36,15 @@
 
             - It is expensive because has to go to main memory in a loop
 
-        * Test-and-test-and-set \(TTS\)
+        * Test-and-test-and-set (TTS)
 
             - It checks first in a cashe. If cashe changed we do TS.
 
         * Fetch and add
 
-        * Compare and swap \(CAS\)
+        * Compare and swap (CAS)
 
-            - CAS\(x,v1, v2\) -&gt; \(x != v1\) ? false : \(x = v2\) true; 
+            - CAS(x,v1, v2) -&gt; (x != v1) ? false : (x = v2) true; 
 
 Questions:
 
