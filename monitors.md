@@ -71,8 +71,15 @@ public calss MB{
 	public void synchronized V(){ //we increase
 		while(count+1 !< upperbound)
 			try{wait ();	} catch (InterruptedException ie){}
-		
-
+		count++;
+		notifyAll();
+	}
+	
+	public void synchronized V(){ //we increase
+		while(count-1 !> 0)
+			try{wait ();	} catch (InterruptedException ie){}
+		count--;
+		notifyAll();
 	}	
 }
 
