@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Monitors](chapter1.md)
+* [Monitors](monitors.md)
 * [Semaphores](semaphores.md)
 
