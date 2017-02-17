@@ -1,8 +1,17 @@
 # Monitors
 
-It is an abstract data type (ADT) that permits one process to access data that it contains at the time. 
+## What is a MONITOR?
 
-- Process can access data only through defined methods. 
+- Monitor is a data type that protects its private data from concurrent access. 
+- Monitor <b>enforces mutual exclusion</b> in its public methods. Only one process at a time can modify data by using public method of a monitor. 
+
+### Analogy
+Think about claw machine that you often see in cinemas or theaters. There is only one person operating it at the time. The person is not reaching to take toys directly but instead is using joystick. The way joystick is built ensures that there is only one person operating it at time. Other people wait in queue. 
+
+## How is it implemented?
+- It is an abstract data type (ADT) that programmer can ```extend``` to include her private data and to ```@Override``` some methods. 
+
+- In java methods can be marked ```synchronized``` to make sure that there is only one process using them at the time. 
 - Monitor defines condition construct
 	- each condition has a q associated with it
 	- condition.wait() //process that invokes it goes to sleep
