@@ -264,7 +264,7 @@ CV okread, okwrite;
 //Reader
 Lock l;
 lock(l);
-//we check if there is a writer or waiting writer
+									//we check if there is a writer or waiting writer
 if(nw > 0 || ww > 0){
 	wr++;
 	wait(l, okread); 				//note that we need to protect it against spontaneous wakeup
