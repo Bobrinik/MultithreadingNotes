@@ -39,7 +39,7 @@ notify(): // gets one thread from wait q and puts it into enter q
 
 # Exercises:
 
-Exercise 1:
+#### Exercise 1:
  
 A modulo semaphore is similar to a counting semaphore. Rather than a normal down() operation, however, it provides a down(int m) operation. This genaralizes down(), causing a caller to block as long as the count is 0 mod m instead of just 0.
 
@@ -68,7 +68,7 @@ GIve an implementation in pseudo-code of modulo semaphores using monitors and co
 
 ```
 
-Exercise 2:
+#### Exercise 2:
 
 A bounded semaphore, Sb, is a general (counting) semaphore which both cannot be decremented below 0, and cannot be incremented above a given upper-bound smax > 0. A thread which tries to violate one of those properties blocks until it can complete its operation. Bounded semaphores may also support a setBound(int n) method, which allows threads to atomically change smax to any value > 0.
 
@@ -104,7 +104,7 @@ public calss MB{
 }
 
 ```
-Exercise 3:
+#### Exercise 3:
 Implement a semaphore using a monitor.
 
 ```
@@ -128,6 +128,8 @@ public class Semaphore{
 	}
 }
 ```
+
+
 ## Common problems
 1. Producer/Consumer
 2. Readers and Writers
@@ -176,7 +178,7 @@ while(b){
 	wait();
 }
 ```
-
+## Readers/Writers
 ## How to implement condition variable in Java?
 ```
 public class CV{

@@ -23,7 +23,7 @@ Down(p):
     decrement once it is above 0
 
 Up(V)
-    increment the calue
+    increment the value
 
 ```
 ### Note:
@@ -51,4 +51,42 @@ T1 --------- T2
 s2.v() ------- s1.v()
 s1.p() ------- s2.p()       
 ```
+
+<hr>
+
+# Exercises
+
+#### Exercise 1
+Three threads T0, T1, and T2 are in infinite loops. T0 just prints out 0's, T1 alternatively prints a 0 or a 1 (starting from a 0), and T3 prints out 2's.
+
+Give pseudo-code using semaphores to coordinate the printing such that the total number of '0's printed is always less than or equal to the sum of "1"s and "2"s printed.
+
+Hint:
+- Think about who is consumer and who is producer in this problem
+
+```
+s0 = 0
+
+T0:
+while(true):
+	s0.p()
+	print(0)
+
+T1:
+while(true):
+	n = random(1) //gives 0 or 1
+	if (n == 0):
+		s0.p()
+		print(0)
+	else:
+		s0.v()
+		print(1)
+
+T2:
+while(true):
+	s0.v()
+	print(2)
+
+```
+
 
