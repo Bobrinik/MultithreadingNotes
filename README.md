@@ -1,10 +1,11 @@
 # Hardware, atomicity
 
-    * UMA,NUMA, SMP, CMP, CMT, FMT, SMT architecture
+    * UMA, NUMA, SMP, CMP, CMT, FMT, SMT architecture
 
     * Amdahal's Law 1/ [ (1 - p) + p/n ]
 
-     Independent threads = threads whose write sets are disjoint and write sets don't overla with read set of another
+
+Independent threads = threads whose write sets are disjoint and write sets don't overla with read set of another
 
 
 
@@ -62,11 +63,11 @@ Questions:
 
 # Termination, barriers, priority, TSD 17.1 - 17.6, A.2.4
 
-    * barriers 
+    * Barriers 
 
-        * Simple barrier \(with semaphores\)
+        * Simple barrier (with semaphores)
 
-        * Sense reversing barrier \[Need to review\]
+        * Sense reversing barrier [Need to review]
 
         * Combining tree barrier
 
