@@ -179,6 +179,58 @@ while(b){
 }
 ```
 ## Readers/Writers
+In database, there are different processes that read and write. We need to make sure that no 2 threads right at the same time. We don't want something being read while writer is writing. However, we can have multiple readers reading at the same time.
+
+### Readers preference
+
+#### Solution with using semaphores
+
+```
+int readers; // we count readers
+BinarySemaphore r = 1; rw =1;
+
+//Reader
+while(true):
+	r.down()//we need to make sure that readers increment sequentially
+	reader++
+	if(readers == 1):
+		rw.down() //we lock writers out
+	r.up()
+	read()
+	r.down() //we need to exit sequentially
+	reader--
+	if(readers == 0):
+		rw.up()
+	r.up()
+	
+//Writer	
+while(true):
+	rw.down()
+	write()
+	rw.up()
+```
+
+- When there is a stream of readers then it is not known when writer can write "Writer may starve"
+- If reader and writer come at the same time, we don't know who comes first "Weak reader preference"
+
+#### Solution with using monitors
+
+```
+int nr = 0; //number of readers
+int nw = 0; //number of writers
+int ww = 0; //number of waiting writers
+
+//Readers
+
+read(){
+	synchronized(this){
+		while(nw != 0 || ww > 0)
+			try{wait()}catch(ie){}
+		nr++
+	}
+}
+```
+
 ## How to implement condition variable in Java?
 ```
 public class CV{
