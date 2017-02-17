@@ -12,6 +12,12 @@ Thread is blocked: thread tells a scheduler that it cannot proceed. Scheduler do
 
 - Semaphore should be incremented and decremented in an atomic way. It should be done in one indivisible step.
 - To avoid starvation semaphore should have queues associated on its ```p()``` operation. When process decrements value bellow 0, semaphore adds process to waiting queue.
+- When process increments value, it should remove process from waiting queue and notify (wake up) it.
+
+### Note:
+
+* We can arrange waiting queue based on different rules. For example, we can make a priority queue.
+
 ```
 
 ```
