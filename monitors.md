@@ -95,4 +95,69 @@ public calss MB{
 }
 
 ```
+Exercise 3:
+Implement a semaphore using a monitor.
 
+```
+public class Semaphore{
+	private int count;
+	
+	public Semaphore(int init){
+		count = init;
+	}
+	
+	public synchronized void V(){
+		count++;
+		notify();
+	}
+	
+	public synchronized void P(){
+		while(count == 0)
+			wait()
+		count--;
+		notify();
+	}
+}
+```
+# Producer/Consumer with monitor
+
+```
+private boolean filled;
+private int buffer;
+
+synchronized void produce(){
+	if(filled){
+		wait();
+	}
+	buffer = ...;//put somethin in
+	filled = true;
+	notify(); //wake up consumer
+}
+
+synchronized void consume(){
+	if(!filled){
+		wait();
+	}
+	consume(buffer);
+	filled = false;
+	notify(); //wake up producer
+}
+Note:
+wait() is a subject to spontaneous wake up. 
+Therefore we need to double check condition.
+while(b){
+	wait();
+}
+```
+#### Spontaneous wake ups
+- It is expensive to ensure NO SPONTANEOUS WAKEUPS
+
+#### How do we wake up only producer?
+- We do notifyAll() consumers will wakeup and go to sleep (while loops); however, producer will start producing
+
+## Monitor semantics
+1. Signal and continue (SC): notifier wakes up someone and continues inside a monitor
+2. Signal and wait (SW): notifier is kicked out of the monitor and signalee enters into monitor without competition
+3. Signal and urgent wait (SUW): it is simillar to signal and wait, but notifier is guranteed to go next in
+4. Signal and return (SR): notifier thread exits the monitor at the same time it signals
+5. Automatic signalling: wake up everyone every time there is a monitor exit
