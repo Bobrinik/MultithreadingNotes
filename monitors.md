@@ -28,6 +28,15 @@ notify(): // gets one thread from wait q and puts it into enter q
 	this.notify() //notifies thread that does wait on this
 ```
 
+## Monitor semantics
+1. Signal and continue (SC): notifier wakes up someone and continues inside a monitor
+2. Signal and wait (SW): notifier is kicked out of the monitor and signalee enters into monitor without competition
+3. Signal and urgent wait (SUW): it is simillar to signal and wait, but notifier is guranteed to go next in
+4. Signal and return (SR): notifier thread exits the monitor at the same time it signals
+5. Automatic signalling: wake up everyone every time there is a monitor exit
+
+
+
 # Exercises:
 
 Exercise 1:
@@ -119,6 +128,24 @@ public class Semaphore{
 	}
 }
 ```
+## Common problems
+1. Producer/Consumer
+2. Readers and Writers
+
+## Side notes
+- Spontaneous wake ups: It is expensive to ensure NO SPONTANEOUS WAKEUPS
+
+```
+while(b){
+	wait();
+}
+
+```
+- How do we wake up only producer?
+	- We do notifyAll() consumers will wakeup and go to sleep (while loops); however, producer will start producing
+
+
+
 # Producer/Consumer with monitor
 
 ```
@@ -149,15 +176,25 @@ while(b){
 	wait();
 }
 ```
-#### Spontaneous wake ups
-- It is expensive to ensure NO SPONTANEOUS WAKEUPS
 
-#### How do we wake up only producer?
-- We do notifyAll() consumers will wakeup and go to sleep (while loops); however, producer will start producing
-
-## Monitor semantics
-1. Signal and continue (SC): notifier wakes up someone and continues inside a monitor
-2. Signal and wait (SW): notifier is kicked out of the monitor and signalee enters into monitor without competition
-3. Signal and urgent wait (SUW): it is simillar to signal and wait, but notifier is guranteed to go next in
-4. Signal and return (SR): notifier thread exits the monitor at the same time it signals
-5. Automatic signalling: wake up everyone every time there is a monitor exit
+## How to implement condition variable in Java?
+```
+public class CV{
+	public void cv_wait(mutex m){
+		try{
+			synchronized(this){
+				m.unlock();//1
+				wait(); //2 
+				//1 and 2 effectively atomic since there is no thread that can cause a problem
+			}
+		} catch(InterruptedException ie){}
+		finally{
+			m.lock(); //executes no matter what
+		}
+	}
+	
+	public synchronized CV_notify(){
+		notify();
+	}
+}
+```
