@@ -11,11 +11,22 @@ Think about claw machine that you often see in cinemas or theaters. There is onl
 ## How is it implemented?
 - It is an abstract data type (ADT) that programmer can ```extend``` to include her private data and to ```@Override``` some methods. 
 
-- In java methods can be marked ```synchronized``` to make sure that there is only one process using them at the time. 
+- In Java methods can be marked ```synchronized``` to make sure that there is only one process using them at the time. 
 - Monitor defines condition construct
 	- each condition has a q associated with it
 	- condition.wait() //process that invokes it goes to sleep
 	- condition.signal() //process wakes up only one process
+
+- In java each object has one lock and one condition variable associated with it
+
+```
+wait(): // puts thread into wait q and then unlocks and goes to sleep
+	unlock(this)
+	thread.current.sleep()
+	
+notify(): // gets one thread from wait q and puts it into enter q
+	this.notify() //notifies thread that does wait on this
+```
 
 # Exercises:
 
