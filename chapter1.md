@@ -57,16 +57,23 @@ Give pseudo-code based on monitors for an implementation of bounded semaphores t
 ```
 public calss MB{
 	volatile private int count;
+	volatile private int upperBound;
 	public MB(int init_count){
 		count = init_count;
 	}
 	
 	public void synchronized setBound(int n){
 		count = n;
+		notifyAll (); //change of count may have unblocked some threads 
 	}
 	
-	public void synchronized V(){ //we increase
-
+	public void synchronized V(){ //we increment
+		while( )
+		
+	}
+	
+	public void synchronized P(){ //we decrement
+	
 	}
 }
 
