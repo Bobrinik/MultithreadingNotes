@@ -34,7 +34,7 @@ GIve an implementation in pseudo-code of modulo semaphores using monitors and co
 		}
 
 		public synchronized void down(int m){
-			while(count % m == 0){
+			while(count % m == 0)
 				try{wait ();	} catch (InterruptedException ie){}
 			count--;
 			notifyAll (); //decr may change waiting condition
@@ -57,6 +57,8 @@ Give pseudo-code based on monitors for an implementation of bounded semaphores t
 ```
 public calss MB{
 	volatile private int count;
+	volatile private int upperbound;
+	
 	public MB(int init_count){
 		count = init_count;
 	}
@@ -67,8 +69,11 @@ public calss MB{
 	}
 	
 	public void synchronized V(){ //we increase
+		while(count+1 !< upperbound)
+			try{wait ();	} catch (InterruptedException ie){}
+		
 
-	}
+	}	
 }
 
 ```
