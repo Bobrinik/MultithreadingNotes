@@ -63,6 +63,7 @@ public calss MB{
 	
 	public void synchronized setBound(int n){
 		count = n;
+		notifyAll(); //some threads may be unblocked after change
 	}
 	
 	public void synchronized V(){ //we increase
