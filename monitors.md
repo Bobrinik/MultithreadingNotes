@@ -267,7 +267,7 @@ lock(l);
 									//we check if there is a writer or waiting writer
 if(nw > 0 || ww > 0){
 	wr++;
-	wait(l, okread); 				//note that we need to protect it against spontaneous wakeup
+	wait(okread); 				//note that we need to protect it against spontaneous wakeup
 }
 else{
 	nr++;
@@ -279,9 +279,9 @@ read_something();
 									//when we unlock we want to let in others
 									//we need to notify waiting readers or writers
 lock(l);
-nr--;//reader leaves
-if(nr == 0){//last reader to leave
-	if(ww > 0){ // we need to check if we have writers waiting
+nr--;							   //reader leaves
+if(nr == 0){						//last reader to leave
+	if(ww > 0){					 // we need to check if we have writers waiting
 		ww--;
 		nw ++;
 		notify(okwrite)
@@ -296,7 +296,7 @@ lock(l)
 									   //if we have readers or writers we cannot get in
 if(nw > 0 || nr > 0 || wr > 0){
 	ww++;
-	wait(l, okwrite);				  //adds to waiting queue
+	wait(okwrite);				  //adds to waiting queue
 }else{ 								//no writers or readers
 	nw++;
 }
@@ -307,11 +307,11 @@ write_something();
 lock(l);
 nw--;
 if( wr > 0){
-	nr = wr;
+	nr = wr; 						//let all readers in
 	wr = 0;
 	signalAll(okread);
-} else if(wr){
-	rw--;
+} else if(ww > 0){ 				  //if no reader let in writer if available
+	ww--;
 	nw++;
 	signal(okwrite);
 }
