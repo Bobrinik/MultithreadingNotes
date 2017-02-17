@@ -223,12 +223,99 @@ int ww = 0; //number of waiting writers
 //Readers
 
 read(){
-	synchronized(this){
+	synchronized(this){ //make readers wait when there is a writer waiting or working
 		while(nw != 0 || ww > 0)
 			try{wait()}catch(ie){}
 		nr++
 	}
+	read_something()
+	synchronized(this){
+		nr--;
+		notifyAll(); //other readers will go to sleep if there is a writer
+	}
 }
+
+//Writer
+
+write():
+	synchronized(this){ //writers should enter sequentially
+		while( nr != 0): //writer that is the next to come in is waiting for reader to finish
+			ww++
+			try{wait()}catch(InterruptedException ie){}
+		ww--
+		nw++
+	}
+	write_something()
+	synchronized(this){
+		nw--
+		notifyAll()
+	}
+```
+- If there is a stream of writers, readers may starve -> Weak writer preference
+
+
+#### Fair solution
+
+```
+int nr, nw, ww, wr;
+mutex l;
+CV okread, okwrite;
+
+//Reader
+Lock l;
+lock(l);
+//we check if there is a writer or waiting writer
+if(nw > 0 || ww > 0){
+	wr++;
+	wait(l, okread); 				//note that we need to protect it against spontaneous wakeup
+}
+else{
+	nr++;
+}
+unlock(l);
+
+read_something();
+
+									//when we unlock we want to let in others
+									//we need to notify waiting readers or writers
+lock(l);
+nr--;//reader leaves
+if(nr == 0){//last reader to leave
+	if(ww > 0){ // we need to check if we have writers waiting
+		ww--;
+		nw ++;
+		notify(okwrite)
+	}
+}
+unlock(l);
+
+//Writer
+Lock l;
+
+lock(l)
+									   //if we have readers or writers we cannot get in
+if(nw > 0 || nr > 0 || wr > 0){
+	ww++;
+	wait(l, okwrite);				  //adds to waiting queue
+}else{ 								//no writers or readers
+	nw++;
+}
+unlock(l);
+
+write_something();
+
+lock(l);
+nw--;
+if( wr > 0){
+	nr = wr;
+	wr = 0;
+	signalAll(okread);
+} else if(wr){
+	rw--;
+	nw++;
+	signal(okwrite);
+}
+unlock(l)
 ```
 
 ## How to implement condition variable in Java?
