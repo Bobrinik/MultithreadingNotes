@@ -20,6 +20,9 @@ Thread can be viewed as a lighter process.
 2. Multiprocessor
 
 # Processor architecture
+
+CPU is core in the following notes.
+
 1. NUMA (Non uniform memory access)
 2. SMP (Symmetric multiprocessor)
 3. CMP (On chip multiprocessor)
@@ -29,4 +32,26 @@ Thread can be viewed as a lighter process.
 
 
 * NUMA
-    *  
+    * CPU's share second level cache
+  
+* SMP
+   * All CPU's share the same cache 
+   
+* CMP
+   * Each CPU has its onw cache
+
+* CMT
+   * Provides hardware support for context switches
+   
+* FMT
+   * Like CMT but switches every cycle
+   * Has threads in a circular structure and switches them by turning it
+
+* SMT (Hyperthreading)
+   * Resources of each CPU are available to both CPUs 
+   * Both CPUs may share
+      * ALU: Arithmetic Logic Unit
+      * FPU: Floating point unit
+      * LSU: Load/Store unit
+      * BPU: Branch prediction unit 
+   
