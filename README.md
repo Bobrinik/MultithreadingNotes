@@ -117,7 +117,7 @@ Questions:
 - 6.1-6.4, 10.1-10.6, B8 , 11.1 - 11.4, 9.8
 # Open MP
 
-# SPMD and PGAS
+# SPMD and [PGAS](/pgas.md)
 
 # [Work stealing](/work_stealing.md)
 -16.1 - 16.5
