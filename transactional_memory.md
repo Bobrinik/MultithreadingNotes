@@ -1,11 +1,12 @@
 # Transactional memory
+- Transaction memory model (another way to think about concurrent programming)
 - Locking is hard
 	- main goal of locking is to sequentialize our code 
 
 ```
 - conceptually mutual exclusive
 atomic ( ) {
-	x= y
+	x = y
 	y = 3
 	q =  x + y
 }
@@ -13,14 +14,14 @@ atomic ( ) {
 - if everything is atomic then we just need a global lock
 - how should it interact with parts that are not atomic
 ```
-- Transaction memory model (another way to thing about concurrent programming)
+
 
 ```
 atomic {
 
 }
 ```
-- implementing atomic
+- Implementing atomic
 	- We have a global lock that needs to be acquired. This way we ensure mutual exclusion among all atomic statements
 		- All atomic statements access it
 - Global lock is pessimistic because we assume that there is some contention happening
