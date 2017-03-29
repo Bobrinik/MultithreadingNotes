@@ -119,7 +119,7 @@ Questions:
 
 # SPMD and PGAS
 
-# Work stealing
+# [Work stealing](/work_stealing.md)
 -16.1 - 16.5
 # Transactional memory
 - 18.1 - 18.4
