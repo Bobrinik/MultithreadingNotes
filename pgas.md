@@ -1,8 +1,8 @@
 # PGAS
 - parallel programming models
-- We have a processes running independently and on top of them we have a layer of hared memory
+- We have a processes running independently and on top of them we have a layer of shared memory
 ```
-[		]
+[		  ]
  |	|	|
 p1	p2	p3
 ```
