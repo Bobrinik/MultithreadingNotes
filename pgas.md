@@ -1,25 +1,24 @@
 # PGAS
-- parallel programming models
+- Parallel programming models
 - We have a processes running independently and on top of them we have a layer of shared memory
 ```
 [		  ]
  |	|	|
 p1	p2	p3
 ```
-- data parallel
-	- We have one istruction stream
-	- All threads execute the same instructions at the same time but on different pieces of data
+- Parallel data
+	- We have one istruction stream where all threads execute the same instructions at the same time but on different pieces of data.
 
 - Partitioned global address space
 	- We want to have an idea of shared and private memory
-		- We want to  ave efficient access to shared memory
+		- We want to  have efficient access to shared memory
 		- we want to take advantage of locality, we are using shared memory but it is owned by one process at the time. Thread that owns this shared memory gets faster and more efficient access to this segment of data
 
 - Asynchrononous PAGAS
-	- We can have read only data and everyone has access to it
+	- We can have read-only data and everyone has access to it
 	- Threads can be executed in different places
 		- Processes decide where they need to be in order to do some computation
-		- This is an interesting idea invented by IBM dfor X10 language
+		- This is an interesting idea invented by IBM for X10 language
 
 ### Basic mechanism
 
@@ -74,5 +73,5 @@ at(P) S
 ```
 - X10 has different modes
 	- it can compile to java virtual machine
-	- there is a vversion that compiles to C++
+	- there is a version that compiles to C++
 
