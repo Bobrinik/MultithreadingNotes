@@ -27,7 +27,7 @@ Independent threads = threads whose write sets are disjoint and write sets don't
 
           When I leave, I go to the room 0.
 
-    * Bakery algorithm \(Ticket algorithm\)
+    * Bakery algorithm (Ticket algorithm)
 
         - Each thread takes a ticket at the door and waits until there is no other thread with later ticket and a flag raised.
 
@@ -62,6 +62,7 @@ Questions:
 
 
 # Termination, barriers, priority, TSD 17.1 - 17.6, A.2.4
+
 
     * Barriers 
 
@@ -105,9 +106,26 @@ Questions:
 
   
 
-# Hardware memory consistency 3.8
+# Hardware memory consistency 
+- 3.8
 
 # Memory models: Java
 
 # Memory models: C++
 
+# Concurrent data structures
+- 6.1-6.4, 10.1-10.6, B8 , 11.1 - 11.4, 9.8
+# Open MP
+
+# SPMD and PGAS
+
+# Work stealing
+-16.1 - 16.5
+# Transactional memory
+- 18.1 - 18.4
+
+# Message passing 
+
+# Process algebra
+
+# Dataflow
