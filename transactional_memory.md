@@ -15,12 +15,6 @@ atomic ( ) {
 - how should it interact with parts that are not atomic
 ```
 
-
-```
-atomic {
-
-}
-```
 - Implementing atomic
 	- We have a global lock that needs to be acquired. This way we ensure mutual exclusion among all atomic statements
 		- All atomic statements access it
@@ -35,7 +29,7 @@ atomic {
 }
 ```
 
-- single bottle neck
+- We can have a single bottle neck
 
 ```
 atomic1 {
@@ -52,35 +46,38 @@ atomic {
 	A
 }
 
-- we have a lock one every varibale
+let Arw allows access in A
+
+- We have a lock on every varibale
 - All a in Arw we lock a
 - All a in Arw we unlock a
 ```
-- problems/complexity
+- Finding whta to lock can become compex if we are dealing with huge data structures
 	- Arw allows access in A
-	- we need to find Arw  (How to find what needs to be locked in atomic statements?)
+	- We need to find Arw  (How to find what needs to be locked in atomic statements?)
 
 ```
 - in simple 
 
-atmc {
+atomic {
 	x++
 	y++
 }
 - it is clear that we need to have lock on x and y
 - but it is more complex if we deal with linked list or some other more complex data structure
-	- in this case we do some estimates
+	- in this case we have to do some estimates
 ```
 
-- how to lock and ensure no deadlock (When we lock stuff how to make sure that we are not creating deadlock?)
-	- we can use trylocks
-	- we can try to sort data and acquire locks for data in certain order
-		- We need some sort of property based on which we can order
-- We are acquiring and releasinf locks
+- How to lock and ensure that no deadlock occures (When we lock stuff how to make sure that we are not creating deadlock?)
+	- We can use tryLocks
+	- We can try to sort data and acquire locks for data in a certain order
+		- We need to find some property based on which we can order
+- We are acquiring and releasing locks
 	- it may lead to a lot of locks
-	- More locks createmore locking overhead
+	- More locks create more locking overhead
 
 ## Optimistic transaction
+
 - We are not doing any locking. The optimism is that we are assume that there won't be any contention. We assume that contention if happens, it happens rarely. We can have a more complex solution for case when we have a contention.
 - We can execute code as usual. However, after we have executed code, we are going to check if there are any conflicts. If we detect a conflict, we do something about it. We are giving up and restarting.
 - Detect conflicts and rollback if necessary (redo it)
