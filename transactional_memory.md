@@ -78,11 +78,11 @@ atomic {
 
 ## Optimistic transaction
 
-- We are not doing any locking. The optimism is that we are assume that there won't be any contention. We assume that contention if happens, it happens rarely. We can have a more complex solution for case when we have a contention.
+- We are not doing any locking. The optimism is that we are assume that there won't be any contention. We assume that contention if happens, it happens rarely. We can have a more complex solution (lock based) for cases where we have a contention.
 - We can execute code as usual. However, after we have executed code, we are going to check if there are any conflicts. If we detect a conflict, we do something about it. We are giving up and restarting.
-- Detect conflicts and rollback if necessary (redo it)
-- We have two approaches:
-	- undo log
+- Detect conflicts -> rollback if necessary  -> redo the operation with locks
+- We can have two approaches:
+	- <b>UNDO LOGS</b>
 		- We start executing and keep track of changes that we did. It will gives as a way to go back. On conflict we just undo our changes.
 
 
@@ -99,7 +99,7 @@ atomic {
 	- When we undo things, we need to make sure that no one sees partial state.
 
 
-	- isolation
+	- Isolation
 		- we have two buffers
 		-  write buffer: it keeps track of all writes. Essentialy, it prevents 
 		-  read buffer: keep track of everything we read
