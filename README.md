@@ -124,7 +124,7 @@ Questions:
 # [Transactional memory](/transactional_memory.md)
 - 18.1 - 18.4
 
-# Message passing 
+# [Message passing](/message_passing.md) 
 
 # Process algebra
 
