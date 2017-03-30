@@ -130,7 +130,9 @@ Questions:
 - hardware transactions
 - hardware lock elision
 
-# [Message passing](/message_passing.md) 
+# [Message passing](/message_passing.md)
+- asynchronous message passing
+- synchronous message passing
 
 # Process algebra
 
