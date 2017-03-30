@@ -86,7 +86,8 @@ atomic {
 	- isolation
 	
 ### UNDO LOGS
-		- We start executing and keep track of changes that we did. It will gives as a way to go back. On conflict we just undo our changes.
+
+- We start executing and keep track of changes that we did. It will gives as a way to go back. On conflict we just undo our changes.
 
 
 ```
