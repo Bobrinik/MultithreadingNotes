@@ -104,9 +104,10 @@ atomic {
 
 
 ### Isolation
-		- we have two buffers
-		-  write buffer: it keeps track of all writes. Essentialy, it prevents 
-		-  read buffer: keep track of everything we read
+
+- We have two buffers:
+	- write buffer: it keeps track of all writes. Essentialy, it prevents 
+	- read buffer: keep track of everything we read
 
 ```
 atomic {
