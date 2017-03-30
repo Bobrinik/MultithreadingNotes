@@ -121,6 +121,9 @@ Questions:
 
 # [Work stealing](/work_stealing.md)
 -16.1 - 16.5
+- double ended queues
+- cactus stack
+
 # [Transactional memory](/transactional_memory.md)
 - 18.1 - 18.4
 - transactional memory
