@@ -123,6 +123,12 @@ Questions:
 -16.1 - 16.5
 # [Transactional memory](/transactional_memory.md)
 - 18.1 - 18.4
+- transactional memory
+- optimistic transaction
+   - undo logs
+   - isolation
+- hardware transactions
+- hardware lock elision
 
 # [Message passing](/message_passing.md) 
 
