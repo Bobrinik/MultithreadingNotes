@@ -118,6 +118,9 @@ Questions:
 # Open MP
 
 # SPMD and [PGAS](/pgas.md)
+- parallel data
+- partitioned global address space
+- asynchronous PAGAS
 
 # [Work stealing](/work_stealing.md)
 -16.1 - 16.5
