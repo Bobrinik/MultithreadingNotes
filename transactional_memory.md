@@ -195,12 +195,13 @@ XTEST //TRUE if you are in a transaction
 	- If two processes write to the same cache line then it is considered as a faillure
 ```
 ### HLE: (hardware lock elision)
-		- It gives transactional support for locks trying to avoid locks
-		- Seemlessly switch to transactions
-		- use locks to convert to transactional design
+- It gives transactional support for locks which tries to avoid locks
+- Seemlessly switch to transactions
+- Use locks to convert to transactional design
+
 
 ```
-//instead of locking and unlocking you acquire you do acquire and release
+//instead of locking and unlocking you do acquire and release
 //we can just change locking sections into acquire and release sections
 XACQUIRE 
 	//if transaction succeeds we are all done
