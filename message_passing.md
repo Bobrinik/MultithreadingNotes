@@ -4,17 +4,16 @@
 	- It makes certain problems less significant and maybe easier to understand
 - There are two forms of message passing:
 	- Asynchronous message passing
-		- you drop a message and go on with you business. We are not blocking on sending
-		- 
+		- We are not blocking on sending.Drop a message and go on with you business. 
+		- We are blocking on receiving
 	- Synchronous message passing 
-		- we are waiting for response after we have sent
+		- We are waiting for response after we have sent. Bring a message and wait for me
+		- We are blocking on receiving
 
-- Synchronous and asynchronous block when receiving
-
-- Note there are a lot of variations in message passing channels:
-	- ordering
-	- capacity
-	- reliability
+- Note that there are a lot of variations in what features message passing channels can implement:
+	- ordering of messages
+	- capacity of channel
+	- reliability of a channel (can we loose packets)
 
 ```
 public class SynchChannel {
