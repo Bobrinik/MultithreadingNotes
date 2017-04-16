@@ -100,7 +100,7 @@ Questions:
 
   
 
-- Memory Consistency 
+- [Memory Consistency](./memory_models.md) 
    - 3.8
    - Consistency models
    - X86-TSO
