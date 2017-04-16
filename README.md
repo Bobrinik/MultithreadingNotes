@@ -1,4 +1,4 @@
-# Hardware, atomicity
+- Hardware, atomicity
 
     * UMA, NUMA, SMP, CMP, CMT, FMT, SMT architecture
 
@@ -7,15 +7,11 @@
 
 Independent threads = threads whose write sets are disjoint and write sets don't overla with read set of another
 
-
-
-# Mutual exclusion
+- Mutual exclusion
 
     - Only one thread at a time can access critical section
 
-    
-
-# Simple locks 2.4-2.6, 7.1 - 7.4 
+- Simple locks 2.4-2.6, 7.1 - 7.4 
 
     * The Peterson's lock
 
@@ -53,7 +49,7 @@ Questions:
 
 
 
-# Complex locks 7.5, 8.1 - 8.5
+- Complex locks 7.5, 8.1 - 8.5
 
     * Queue locks
 
@@ -61,7 +57,7 @@ Questions:
 
 
 
-# Termination, barriers, priority, TSD 17.1 - 17.6, A.2.4
+- Termination, barriers, priority, TSD 17.1 - 17.6, A.2.4
 
 
     * Barriers 
@@ -78,7 +74,7 @@ Questions:
 
     * Monitors
 
-# Deadlock, race conditions
+- Deadlock, race conditions
 
     * Consensus problem
 
@@ -86,11 +82,11 @@ Questions:
 
 
 
-# Expressiveness
+- Expressiveness
 
 
 
-# Linearizability, scheduling 3.1-3.6
+- Linearizability, scheduling 3.1-3.6
 
     * Weak fairness
 
@@ -106,40 +102,40 @@ Questions:
 
   
 
-# Hardware memory consistency 
+- Hardware memory consistency 
 - 3.8
 
-# Memory models: Java
+- Memory models: Java
 
-# Memory models: C++
+- Memory models: C++
 
-# Concurrent data structures
-- 6.1-6.4, 10.1-10.6, B8 , 11.1 - 11.4, 9.8
-# Open MP
+- Concurrent data structures
+   - 6.1-6.4, 10.1-10.6, B8 , 11.1 - 11.4, 9.8
+- Open MP
 
-# SPMD and [PGAS](/pgas.md)
-- parallel data
-- partitioned global address space
-- asynchronous PAGAS
+- SPMD and [PGAS](/pgas.md)
+   - parallel data
+   - partitioned global address space
+   - asynchronous PAGAS
 
-# [Work stealing](/work_stealing.md)
--16.1 - 16.5
-- double ended queues
-- cactus stack
+- [Work stealing](/work_stealing.md)
+   -16.1 - 16.5
+   - double ended queues
+   - cactus stack
 
-# [Transactional memory](/transactional_memory.md)
-- 18.1 - 18.4
-- transactional memory
-- optimistic transaction
-   - undo logs
-   - isolation
-- hardware transactions
-- hardware lock elision
+- [Transactional memory](/transactional_memory.md)
+   - 18.1 - 18.4
+   - transactional memory
+   - optimistic transaction
+      - undo logs
+      - isolation
+   - hardware transactions
+   - hardware lock elision
 
-# [Message passing](/message_passing.md)
-- asynchronous message passing
-- synchronous message passing
+- [Message passing](/message_passing.md)
+   - asynchronous message passing
+   - synchronous message passing
 
-# Process algebra
+- Process algebra
 
-# Dataflow
+- Dataflow
