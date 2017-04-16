@@ -1,8 +1,6 @@
 - Hardware, atomicity
-
-    * UMA, NUMA, SMP, CMP, CMT, FMT, SMT architecture
-
-    * Amdahal's Law 1/ [ (1 - p) + p/n ]
+   - UMA, NUMA, SMP, CMP, CMT, FMT, SMT architecture
+   - Amdahal's Law 1/ [ (1 - p) + p/n ]
 
 
 Independent threads = threads whose write sets are disjoint and write sets don't overla with read set of another
