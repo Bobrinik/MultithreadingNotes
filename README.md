@@ -100,12 +100,11 @@ Questions:
 
   
 
-- Hardware memory consistency 
-- 3.8
-
-- Memory models: Java
-
-- Memory models: C++
+- Memory Consistency 
+   - 3.8
+   - Consistency models
+   - X86-TSO
+   - Java Memory Model
 
 - Concurrent data structures
    - 6.1-6.4, 10.1-10.6, B8 , 11.1 - 11.4, 9.8
