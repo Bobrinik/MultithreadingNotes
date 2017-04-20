@@ -68,7 +68,7 @@ Questions:
 
         * Static tree barrier 
 
-    * Semaphores
+    * [Semaphores](./semaphores.md)
 
     * Monitors
 
