@@ -70,7 +70,7 @@ Questions:
 
     * [Semaphores](./semaphores.md)
 
-    * Monitors
+    * [Monitors](./monitors.md)
 
 - Deadlock, race conditions
 
