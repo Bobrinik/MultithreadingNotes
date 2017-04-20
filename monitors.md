@@ -155,7 +155,7 @@ private boolean filled;
 private int buffer;
 
 synchronized void produce(){
-	if(filled){
+	while(filled){
 		wait();
 	}
 	buffer = ...;//put somethin in
@@ -164,7 +164,7 @@ synchronized void produce(){
 }
 
 synchronized void consume(){
-	if(!filled){
+	while(!filled){
 		wait();
 	}
 	consume(buffer);
