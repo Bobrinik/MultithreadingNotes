@@ -38,3 +38,36 @@ public class SynchChannel {
 ```
 - Which one is better?
 	- Synchronous has higher expressiveness. There are thing we can do with synchronous channel that we cannot do with asynchronous channel.
+
+```
+P
+send(Q, 23)
+
+Q
+x = 0
+x = receive(p)
+//asynchronous
+//what does P know about x?
+//we don't actually know if Q has received message or not
+//in asynchronous design, we don't know if the value was updated with 23 or no
+
+//synchronous
+//after the send P knows that Q must have received
+//therefore X must be 23, and X cannot be 0 after this
+```
+
+## Common knowledge
+- What do the processes know bout the state of the system?
+```
+p -----> q
+
+async
+- p knows that it sent message to q
+- p does not know if q received it until q sends ACK back
+- but then q does not know that p received it
+```
+
+
+### 2 Army problem
+- There are two mountains. On two sommets there are red army one and two. In the middle of a valley there is blue army. Both red armies have to attack blue army at the same time.
+- They need to send a messsager to another red army. 
